@@ -1,18 +1,16 @@
-# cppleaning
-从零开始学习C++
-```c++
 #include<iostream>
 
 using namespace std;
 
-#define Day 7
-
 int main()
 {
+    int a = 10;
+
+    cout << "a = " << a << endl;
+
 
 
     system("pause");
 
     return 0;
 }
-```
