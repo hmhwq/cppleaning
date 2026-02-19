@@ -104,29 +104,63 @@
         "description": "生成遍历容器（如 vector、数组）的范围循环"
     },
 
-    "生成类 (Class)": {
-        "prefix": "class",
+    "C++ 标准函数定义": {
+        "scope": "cpp,c",
+        "prefix": "func",
         "body": [
-            "class ${1:ClassName} {",
-            "private:",
-            "    $2",
-            "public:",
-            "    // 构造函数",
-            "    ${1:ClassName}() {$3}",
-            "    // 析构函数",
-            "    ~${1:ClassName}() {$4}",
-            "};$0"
+            "/**",
+            " * @brief ${1:在这里简述函数的功能}",
+            " * ",
+            " * @param ${2:param_name} ${3:参数说明}",
+            " * @return ${4:void} ${5:返回值说明}",
+            " */",
+            "${4:void} ${6:functionName}(${7:/* 参数列表 */}) {",
+            "    $0",
+            "}"
         ],
-        "description": "快速生成一个带有默认构造函数和析构函数的类"
+        "description": "生成带有标准注释的 C++ 函数"
     },
 
-    "生成结构体 (Struct)": {
+    "C++ 标准类(Class)定义": {
+        "scope": "cpp",
+        "prefix": "class",
+        "body": [
+            "/**",
+            " * @brief ${1:类的功能描述，例如：高斯光束模型或数据处理类}",
+            " */",
+            "class ${2:GaussianBeam} {",
+            "private:",
+            "    ${3:/* 私有成员变量，例如：double wavelength; */}",
+            "",
+            "public:",
+            "    /**",
+            "     * @brief 默认构造函数",
+            "     */",
+            "    ${2:GaussianBeam}();",
+            "",
+            "    /**",
+            "     * @brief 析构函数",
+            "     */",
+            "    ~${2:GaussianBeam}();",
+            "",
+            "    ${0:/* 其他公共成员函数 */}",
+            "};"
+        ],
+        "description": "生成带有标准注释的 C++ 类(Class)，自动同步构造/析构函数名"
+    },
+
+    "C++ 标准结构体(Struct)定义": {
+        "scope": "cpp,c",
         "prefix": "struct",
         "body": [
-            "struct ${1:StructName} {",
-            "    $2",
-            "};$0"
+            "/**",
+            " * @brief ${1:结构体说明，例如：用于存储非线性模式转换的参数}",
+            " */",
+            "struct ${2:OpticalParams} {",
+            "    ${3:double} ${4:paramName}; ${5:// 参数说明}",
+            "    $0",
+            "};"
         ],
-        "description": "快速生成一个结构体"
-    }
+        "description": "生成带有标准注释的 C++ 结构体(Struct)"
+    },
 }
