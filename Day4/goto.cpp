@@ -13,6 +13,6 @@ int main(){
     cout<<"第5行"<<endl;
     FLAG:
     cout<<"第6行"<<endl;
-    system("pause");
+    cin.get();
     return 0;
 }
