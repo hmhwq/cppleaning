@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
-#include<string>
+
 int main() {
 
     
 
+    cin.get();
     return 0;
 }
