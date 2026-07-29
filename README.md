@@ -11,7 +11,7 @@ int main()
 {
 
 
-    system("pause");
+   cin.get()//切换到了WSL 的Ubuntu环境中进行学习了 
 
     return 0;
 }
