@@ -9,8 +9,10 @@ void countCalls()
 
 int main()
 {
+
     countCalls(); // 输出: 函数被调用了 1 次
     countCalls(); // 输出: 函数被调用了 2 次
     countCalls(); // 输出: 函数被调用了 3 次
+
     return 0;
 }
