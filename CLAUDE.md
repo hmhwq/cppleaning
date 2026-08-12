@@ -8,17 +8,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 已覆盖主题：基础语法 → 数组 → 指针 → 结构体 → 内存模型 → 引用 → 函数高级 → 类和对象（封装）。
 
-项目已从 Windows 迁移到 WSL-Ubuntu 环境。
-
 ## Build & Run
 
-使用 VS Code 的 tasks.json 中配置的 g++（C++17，含 `-Werror`）：
+### CMake（推荐）
+
+项目根目录已配置 `CMakeLists.txt`，统一管理所有 Day 的构建。
 
 ```bash
-g++ -fdiagnostics-color=always -g -Wall -Wextra -Werror -std=c++17 <source.cpp> -o <output_binary>
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+make -j$(nproc)
 ```
 
-多文件编译（手动命令行）：
+单个目标编译：
+```bash
+cd build && make <target_name>
+```
+
+VS Code 中安装 CMake Tools 扩展，`Ctrl+Shift+B` 构建，`F5` 调试即可自动适配。
+
+### 手动 g++（备选）
+
+```bash
+g++ -fdiagnostics-color=always -g -Wall -Wextra -Werror -std=c++17 <source.cpp> -o <output>
+```
+
+多文件编译：
 ```bash
 g++ -std=c++17 -g -Wall -Wextra -Werror *.cpp -o <output>
 ```
@@ -29,13 +44,6 @@ g++ -std=c++17 -g -Wall -Wextra -Werror -c main.cpp -o main.o
 g++ -std=c++17 -g -Wall -Wextra -Werror -c math.cpp -o math.o
 g++ main.o math.o -o main
 ```
-
-GSL 库链接（Day12 的 GSL 数值积分示例）：
-```bash
-g++ -std=c++17 -g -Wall -Wextra -Werror test_gsl.cpp -o test_gsl -lgsl -lgslcblas -lm
-```
-
-VS Code 中 `Ctrl+Shift+B` 触发默认 build task（编译当前目录所有 .cpp），`F5` 启动调试（gdb）。
 
 ## Project Structure
 
@@ -71,9 +79,18 @@ Day15/   — 类和对象：封装（public/private/protected）、成员、stru
 - 文件头使用 Doxygen 风格注释（`@file`, `@author HMHWQ`, `@brief`, `@date` 等）
 - 源文件内混合中英文注释
 - Day5 起使用 `cin.get()` 替代 `system("pause")`（跨平台）
-- 编译产物（`.exe` 及无后缀二进制）被提交到了仓库中
+- 编译产物（`.exe` 及无后缀二进制）**不应提交**，已通过 `.gitignore` 忽略
 - Day13/Day14 部分内容以 `.md` 笔记形式记录，无对应 `.cpp` 文件
 - Day7/Day9 使用子目录组织多文件示例
+
+## GSL 库
+
+GNU Scientific Library 未安装在当前系统中。Day12 的 GSL 示例（`test_gsl.cpp`、`gsl_integration_demo.cpp`）暂时无法编译。
+
+安装方法：
+```bash
+sudo apt install libgsl-dev
+```
 
 ## Conda Environments
 
@@ -92,8 +109,21 @@ base 环境的 Python 为 3.12.3（系统另有 python3 可能冲突，注意 PA
 
 ## Development Environment
 
-- **OS**: Linux (WSL-Ubuntu, Cinnamon 桌面)
+- **OS**: Linux Mint 22.3 Zena (Cinnamon 桌面)
+- **Kernel**: Linux 7.0.0-28-generic (x86_64)
+- **Shell**: zsh
 - **Terminal**: Ghostty（通过 systemd 后台服务运行，`--gtk-single-instance=true`）
 - **File Manager**: Nemo
-- **Shell**: zsh
-- .vscode/settings.json 尚未创建
+
+### Toolchain
+
+| 工具 | 版本 | 路径/安装方式 |
+|------|------|---------------|
+| g++ | 13.3.0 | `/usr/bin/g++` (系统包) |
+| gdb | 15.1 | `/usr/bin/gdb` (系统包) |
+| CMake | 3.28.3 | `/usr/bin/cmake` (系统包) |
+| Node.js | 24.15.0 | nvm (`~/.nvm/`) |
+| npm | 11.12.1 | nvm |
+| Claude Code | 2.1.228 | npm 全局安装 |
+| VS Code | 1.132.0 | 系统包 |
+| Conda | 25.5.1 | `/home/hmhwq/anaconda3/` |
