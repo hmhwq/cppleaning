@@ -6,12 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 默认 Debug 构建模式（未指定时）
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
-endif()
+# if(NOT CMAKE_BUILD_TYPE)
+#     set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)
+# endif()
 
 # 编译选项
-add_compile_options(-Wall -Wextra -Werror -g)
+# add_compile_options(-Wall -Wextra -Werror -g)
+add_compile_options(-Wall -Wextra -g)
 
 # GSL 库（可选，未安装时跳过 GSL 示例）
 find_package(GSL QUIET)
@@ -125,4 +126,13 @@ add_single_targets(Day13 堆区.cpp 静态局部变量.cpp 引用做函数的返
 add_single_targets(Day15 封装的意义.cpp 设计立方体类.cpp 学生类.cpp)
 
 
+# ============================================================
+# Day16
+# ============================================================
 add_single_targets(Day16 1.cpp)
+
+
+# ============================================================
+# Day17
+# ============================================================
+add_single_targets(Day17 gouzao_xigou_function.cpp)
