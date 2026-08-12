@@ -31,7 +31,11 @@ public:
         return m_H * m_L * m_W;
     }
 
-    bool isequal(Cube c1, Cube c2) {}
+    bool isequal(Cube c1, Cube c2) {
+        (void)c1;
+        (void)c2;
+        return false;  // TODO: 实现比较逻辑
+    }
 };
 
 int main()
