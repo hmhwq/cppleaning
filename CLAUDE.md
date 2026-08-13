@@ -85,9 +85,9 @@ Day15/   — 类和对象：封装（public/private/protected）、成员、stru
 
 ## GSL 库
 
-GNU Scientific Library 未安装在当前系统中。Day12 的 GSL 示例（`test_gsl.cpp`、`gsl_integration_demo.cpp`）暂时无法编译。
+GNU Scientific Library 已安装（libgsl-dev 2.7.1）。Day12 的 GSL 示例（`test_gsl.cpp`、`gsl_integration_demo.cpp`）可正常编译，CMake 检测到 GSL 时自动链接。
 
-安装方法：
+安装方法（其他机器）：
 ```bash
 sudo apt install libgsl-dev
 ```
