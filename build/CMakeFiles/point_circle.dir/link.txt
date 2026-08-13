@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/point_circle.dir/Circle.cpp.o CMakeFiles/point_circle.dir/Point.cpp.o CMakeFiles/point_circle.dir/main.cpp.o  -o point_circle 

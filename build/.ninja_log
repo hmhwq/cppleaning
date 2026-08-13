@@ -1,0 +1,7 @@
+# ninja log v5
+0	46	1786438720724481310	CMakeFiles/point_circle.dir/Circle.cpp.o	8139a1b5929c030b
+0	46	1786438720724481310	CMakeFiles/point_circle.dir/Point.cpp.o	9e747fa2a4915628
+0	266	1786438720944488432	CMakeFiles/point_circle.dir/main.cpp.o	aa228539d6becbb7
+266	465	1786438721143020856	point_circle	6ffceb607778fe9d
+0	253	1786623529421221418	CMakeFiles/point_circle.dir/main.cpp.o	aa228539d6becbb7
+254	391	1786623529558019924	point_circle	6ffceb607778fe9d
