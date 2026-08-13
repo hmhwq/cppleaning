@@ -1,0 +1,166 @@
+{
+	"文件头注释 (File Header)": {
+        "prefix": "head",
+        "body": [
+            "/**",
+            " * @file ${TM_FILENAME}",
+            " * @author HMHWQ",
+            " * @brief ${1:在这里写文件功能说明}",
+            " * @version 0.1",
+            " * @date ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}",
+            " * ",
+            " * @copyright Copyright (c) ${CURRENT_YEAR}",
+            " * ",
+            " */",
+            "$0"
+        ],
+        "description": "自动生成包含时间、作者的文件头注释"
+    },
+
+    "C++ 基础模板": {
+		"prefix": "main",
+		"body": [
+			"#include <iostream>",
+			"using namespace std;",
+			"",
+			"int main() {",
+			"",
+			"    $0",
+			"",
+			"    cin.get();",
+			"    return 0;",
+			"}"
+		],
+		"description": "快速生成C++主函数结构"
+	},
+
+    "C++ 刷题/算法模板": {
+        "prefix": "#cp",
+        "body": [
+            "#include <iostream>",
+            "#include <vector>",
+            "#include <string>",
+            "#include <algorithm>",
+            "",
+            "using namespace std;",
+            "",
+            "void solve() {",
+            "    $0",
+            "}",
+            "",
+            "int main() {",
+            "    // 优化标准 I/O 操作的速度",
+            "    ios_base::sync_with_stdio(false);",
+            "    cin.tie(NULL);",
+            "    ",
+            "    int t = 1;",
+            "    // cin >> t; // 如果题目有多组测试数据，取消注释这一行",
+            "    while (t--) {",
+            "        solve();",
+            "    }",
+            "    return 0;",
+            "}"
+        ],
+        "description": "生成适合做 LeetCode、洛谷等算法题的模板"
+    },
+
+	
+	"快速输出 (cout)": {
+        "prefix": "cout",
+        "body": [
+            "cout << ${1:\"Hello\"} << endl;$0"
+        ],
+        "description": "快速生成 cout 输出语句"
+    },
+   
+
+    "标准 For 循环": {
+        "prefix": "fori",
+        "body": [
+            "for (int i = 0; i < ${1:n}; ++i) {",
+            "    $0",
+            "}"
+        ],
+        "description": "生成以 i 为索引的标准 for 循环"
+    },
+
+    "标准 For 循环 (以 j 为索引)": {
+        "prefix": "forj",
+        "body": [
+            "for (int j = 0; j < ${1:m}; ++j) {",
+            "    $0",
+            "}"
+        ],
+        "description": "生成以 j 为索引的标准 for 循环 (常用于嵌套)"
+    },
+
+    "范围 For 循环 (C++11)": {
+        "prefix": "forr",
+        "body": [
+            "for (auto& ${1:item} : ${2:collection}) {",
+            "    $0",
+            "}"
+        ],
+        "description": "生成遍历容器（如 vector、数组）的范围循环"
+    },
+
+    "C++ 标准函数定义": {
+        "scope": "cpp,c",
+        "prefix": "func",
+        "body": [
+            "/**",
+            " * @brief ${1:在这里简述函数的功能}",
+            " * ",
+            " * @param ${2:param_name} ${3:参数说明}",
+            " * @return ${4:void} ${5:返回值说明}",
+            " */",
+            "${4:void} ${6:functionName}(${7:/* 参数列表 */}) {",
+            "    $0",
+            "}"
+        ],
+        "description": "生成带有标准注释的 C++ 函数"
+    },
+
+    "C++ 标准类(Class)定义": {
+        "scope": "cpp",
+        "prefix": "class",
+        "body": [
+            "/**",
+            " * @brief ${1:类的功能描述，例如：高斯光束模型或数据处理类}",
+            " */",
+            "class ${2:GaussianBeam} {",
+            "private:",
+            "    ${3:/* 私有成员变量，例如：double wavelength; */}",
+            "",
+            "public:",
+            "    /**",
+            "     * @brief 默认构造函数",
+            "     */",
+            "    ${2:GaussianBeam}();",
+            "",
+            "    /**",
+            "     * @brief 析构函数",
+            "     */",
+            "    ~${2:GaussianBeam}();",
+            "",
+            "    ${0:/* 其他公共成员函数 */}",
+            "};"
+        ],
+        "description": "生成带有标准注释的 C++ 类(Class)，自动同步构造/析构函数名"
+    },
+
+    "C++ 标准结构体(Struct)定义": {
+        "scope": "cpp,c",
+        "prefix": "struct",
+        "body": [
+            "/**",
+            " * @brief ${1:结构体说明，例如：用于存储非线性模式转换的参数}",
+            " */",
+            "struct ${2:OpticalParams} {",
+            "    ${3:double} ${4:paramName}; ${5:// 参数说明}",
+            "    $0",
+            "};"
+        ],
+        "description": "生成带有标准注释的 C++ 结构体(Struct)"
+    },
+}
