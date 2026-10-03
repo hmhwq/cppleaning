@@ -1,3 +1,0 @@
-/home/hmhwq/CODE/cppleaning/build/CMakeFiles/rebuild_cache.dir
-/home/hmhwq/CODE/cppleaning/build/CMakeFiles/edit_cache.dir
-/home/hmhwq/CODE/cppleaning/build/CMakeFiles/point_circle.dir
